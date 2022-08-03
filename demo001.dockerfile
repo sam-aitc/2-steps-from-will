@@ -6,6 +6,9 @@ RUN git clone https://github.com/mattbudish/libmu.git ../libmu && gcc -o ../bin/
 
 FROM samaitc/ubuntu2204
 COPY --from=builder /demo/bin/demoServer /demo/
+
+EXPOSE 3000
+
 # ENTRYPOINT [  ]
 CMD [ "/demo/demoServer" ]
 
