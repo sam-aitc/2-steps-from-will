@@ -6,8 +6,14 @@ jobs:
   GCC11_UBUNTU2204_DEMO001:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
+      - name: Checkout 1
         uses: actions/checkout@v3
+
+      - name: Prepare libmu
+        uses: actions/checkout@v3
+        with:
+          repository: mattbudish/libmu
+          path: libmu
 
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v2
