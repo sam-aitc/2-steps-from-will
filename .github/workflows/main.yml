@@ -3,17 +3,11 @@ name: Docker image buildx and push
 on: [push]
 
 jobs:
-  GCC11_UBUNTU2204_DEMO001:
+  GCC11_UBUNTU2204:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout 1
+      - name: Checkout
         uses: actions/checkout@v3
-
-      - name: Prepare libmu
-        uses: actions/checkout@v3
-        with:
-          repository: mattbudish/libmu
-          path: libmu
 
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v2
@@ -43,6 +37,16 @@ jobs:
           push: true
           platforms: linux/amd64,linux/arm64
           tags: samaitc/gcc11:latest
+
+  DEMO001:
+    needs: GCC11_UBUNTU2204
+    runs-on: ubuntu-latest
+    steps:
+      - name: Prepare libmu
+        uses: actions/checkout@v3
+        with:
+          repository: mattbudish/libmu
+          path: libmu
 
       - name: Build and push demo001
         uses: docker/build-push-action@v3
