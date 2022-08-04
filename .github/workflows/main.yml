@@ -3,7 +3,7 @@ name: Docker image buildx and push
 on: [push]
 
 jobs:
-  GCC11:
+  GCC11_UBUNTU2204_DEMO001:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
