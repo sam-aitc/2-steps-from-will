@@ -22,11 +22,29 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_PASSWORD }}
 
-      - name: Build and push
+      - name: Build and push gcc11
         id: docker_build
         uses: docker/build-push-action@v3
         with:
           file: gcc11.dockerfile
+          push: true
+          platforms: linux/amd64,linux/arm64
+          tags: samaitc/gcc11:latest
+
+      - name: Build and push ubuntu2204
+        id: docker_build
+        uses: docker/build-push-action@v3
+        with:
+          file: ubuntu2204.dockerfile
+          push: true
+          platforms: linux/amd64,linux/arm64
+          tags: samaitc/gcc11:latest
+
+      - name: Build and push demo001
+        id: docker_build
+        uses: docker/build-push-action@v3
+        with:
+          file: demo001.dockerfile
           push: true
           platforms: linux/amd64,linux/arm64
           tags: samaitc/gcc11:latest
