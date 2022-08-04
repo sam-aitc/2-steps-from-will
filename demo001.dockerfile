@@ -2,8 +2,7 @@ FROM samaitc/gcc11 AS builder
 WORKDIR /demo/bin
 WORKDIR /demo/src
 COPY main.c ./libmu/src/mu.c ./libmu/src/mu.h /demo/src/
-# RUN git clone https://github.com/mattbudish/libmu.git ../libmu && gcc -Wno-incompatible-pointer-types -o ../bin/demoServer main.c ../libmu/src/mu.c -I../libmu/src -luv -lmicrohttpd
-RUN gcc -Wno-incompatible-pointer-types -o ../bin/demoServer main.c mu.c -luv -lmicrohttpd
+RUN gcc -Wno-incompatible-pointer-types -o ../bin/demoServer main.c libmu/src/mu.c -Ilibmu/src -luv -lmicrohttpd
 
 FROM samaitc/ubuntu2204
 COPY --from=builder /demo/bin/demoServer /demo/
