@@ -6,10 +6,10 @@ jobs:
   GCC11_UBUNTU2204_DEMO001:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
+      - name: Checkout 2-steps-from-will
         uses: actions/checkout@v3
 
-      - name: Prepare libmu
+      - name: Checkout libmu
         uses: actions/checkout@v3
         with:
           repository: mattbudish/libmu

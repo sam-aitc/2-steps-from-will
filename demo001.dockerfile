@@ -1,7 +1,7 @@
 FROM samaitc/gcc11 AS builder
 WORKDIR /demo/bin
 WORKDIR /demo/src
-COPY main.c 2-steps-from-will/libmu/src/mu.c 2-steps-from-will/libmu/src/mu.h /demo/src/
+COPY ./main.c ./libmu/src/mu.c ./libmu/src/mu.h /demo/src/
 RUN gcc -Wno-incompatible-pointer-types -o ../bin/demoServer main.c mu.c -luv -lmicrohttpd
 
 FROM samaitc/ubuntu2204
