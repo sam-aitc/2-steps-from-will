@@ -40,4 +40,3 @@ void listen_cb()
     printf("libmu server listening on port %d\n", PORT);
     fflush(stdout);
 }
-
