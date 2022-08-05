@@ -15,6 +15,11 @@ jobs:
           repository: mattbudish/libmu
           path: libmu
 
+      - name: Listing
+        uses: Rishabh510/Path-lister-action@master
+        with:
+          path: .
+
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v2
 
@@ -51,4 +56,3 @@ jobs:
           push: true
           platforms: linux/amd64,linux/arm64
           tags: samaitc/gcc11:latest
-
